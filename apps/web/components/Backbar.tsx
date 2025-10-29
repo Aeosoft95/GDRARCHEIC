@@ -1,15 +1,12 @@
-'use client'
-export default function BackBar({ title }: { title?: string }) {
-  function goBack() {
-    if (typeof window !== 'undefined') {
-      if (window.history.length > 1) window.history.back()
-      else window.location.href = '/'
-    }
-  }
+"use client";
+import Link from "next/link";
+
+export default function BackBar({ href = "/", label = "Back" }: { href?: string; label?: string }) {
   return (
-    <div className="border-b border-zinc-800 p-3 flex items-center justify-between">
-      <div className="text-zinc-300">{title || 'ARCHEI Companion'}</div>
-      <button className="btn !bg-zinc-800" onClick={goBack}>⟵ Indietro</button>
+    <div className="p-3 border-b flex items-center gap-3">
+      <Link href={href} className="underline">
+        ← {label}
+      </Link>
     </div>
-  )
+  );
 }
