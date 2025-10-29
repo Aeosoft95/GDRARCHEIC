@@ -1,0 +1,16 @@
+[build]
+builder = "NIXPACKS"
+
+[env]
+NODE_VERSION = "20.18.0"
+NIXPACKS_PKGS = "python3 make gcc g++"
+NIXPACKS_NODE_PACKAGE_MANAGER = "pnpm"
+
+[phases.setup]
+cmds = ["corepack enable"]
+
+[phases.build]
+cmds = ["pnpm -w install", "pnpm --filter @archei/web build"]
+
+[start]
+cmd = "pnpm --filter @archei/web start"
