@@ -14,4 +14,3 @@ cmds = ["pnpm -w install", "pnpm --filter @archei/web build"]
 
 [start]
 cmd = "pnpm --filter @archei/web start"
-//
